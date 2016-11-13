@@ -8,7 +8,7 @@ fi
 
 INDIR=$1
 GCS_IMAGES=$(gsutil ls -r $INDIR | grep TIF)
-EEUSER=rschmit
+EEUSER=<your username here>
 
 collection=users/$EEUSER/reunionvideo
 earthengine create collection $collection

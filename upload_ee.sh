@@ -7,7 +7,7 @@ if test $# -lt 1; then
 fi
 
 GCS_IMAGE=$1
-EEUSER=rschmit
+EEUSER=<your username here>
 BASE=$(basename "$GCS_IMAGE" | cut -d. -f1)
 
 earthengine upload image --asset_id users/$EEUSER/$BASE $GCS_IMAGE

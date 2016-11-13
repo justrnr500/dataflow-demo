@@ -1,8 +1,8 @@
 #!/bin/bash
 
 
-BUCKET=acg-landsat-demo
-PROJECT=saber-test-dull
+BUCKET=<your bucket name here>
+PROJECT=<your project name here>
 gsutil -m rm -rf gs://$BUCKET/landsat/output
 
 ./dfndvi.py \
