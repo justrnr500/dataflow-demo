@@ -1,0 +1,26 @@
+Instructions intended for running this on Google Cloud Shell
+
+1.  Sign in to Google Cloud Platform
+2.  Launch Google Cloud Shell.
+3.  Ensure that your context is set to the appropriate project, if not use: gcloud config set project <your project name>
+4.  Create a new cloud storage bucket for this project:
+    gsutil mb -c regional -l <choose a region, such as us-east1> gs://<your bucket name>
+3.  When the shell is available, clone the git repository:
+    git clone https://github.com/justrnr500/dataflow-demo
+4.  Change into the dataflow-demo directory:  cd dataflow-demo
+5.  Every time you restart the Cloud Shell, you will need to run the following commands:
+    sudo ./install_packages.sh
+    sudo ./install_ee.sh
+6.  Edit run_oncloud.sh, and set the BUCKET value to your cloud bucket created in the previous step, and PROJECT to your project name.  The rest of the script can be left alone.
+7.  Run the shell script:
+    ./run_oncloud.sh
+8.  Monitor the job in the cloud console (Approx. 12 minutes to run)
+9.  Once complete, you can proceed with making the video. NOTE:  If you do not have an earth engine account, create one here:
+    https://code.earthengine.google.com
+10. Edit upload_video.sh, and set the EEUSER value to your username for Google Earth Engine.
+11. Run the following command to upload the assets:
+    ./upload_video.sh gs://<your bucket name>
+12. You will be prompted to authenticate to your Google Earth Engine account.  The simplest way to do this is to quit after the curl command happens, then copy and paste the link into your browser.  Once authenticated, you will be given a key to copy back into cloud shell.
+13. After the command executes, you will see a command posted on the shell.  Copy it, and sign in to Google Earth Engine at https://code.earthengine.google.com
+14. Once all the assets have been placed in the folder (on the upper right hand side, select tasks to view the status), paste the code into the center console, and click run.
+15. This will create a task, which you can execute on the right hand side.  It will ask you where you would like to save the video (either to Google Drive or Google Cloud Storage).
